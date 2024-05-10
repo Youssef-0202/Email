@@ -1,0 +1,58 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'keepNote.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'keepNote.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'keepNote.body' | translate}}</label>
+                                            <textarea id="1" pInputTextarea rows="5" cols="30" placeholder="{{'keepNote.body' | translate}}"  [(ngModel)]="item.body"
+                                                       ></textarea>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="2">{{'keepNote.header' | translate}}</label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'keepNote.header' | translate}}" id="2" [(ngModel)]="item.header"
+                                                    />
+                                            
+                                        </div>
+
+
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="3">{{'keepNote.personne' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="personnes" [(ngModel)]="item.personne" id="3" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="email" placeholder="{{'keepNote.personne' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'keepNote.dateKeepNote' | translate}}</label>
+                                            <p-calendar appendTo="body" id="4"  [showTime]="true" [showSeconds]="false" placeholder="{{'keepNote.dateKeepNote' | translate}}"  [(ngModel)]="item.dateKeepNote"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

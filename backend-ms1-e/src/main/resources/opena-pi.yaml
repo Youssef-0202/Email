@@ -1,0 +1,1024 @@
+openapi: 3.0.3
+info:
+  title: Title
+  description: Title
+  version: 1.0.0
+servers:
+  - url: 'https'
+paths:
+  /emails:
+    get:
+      summary: List all emails
+      operationId: listEmails
+      tags:
+        - emails
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of emails
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Emails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a email
+      operationId: createEmails
+      tags:
+        - emails
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /emails/{emailId}:
+    get:
+      summary: Info for a specific email
+      operationId: showEmailById
+      tags:
+        - emails
+      parameters:
+        - name: emailId
+          in: path
+          required: true
+          description: The id of the email to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Emails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /emailDetails:
+    get:
+      summary: List all emailDetails
+      operationId: listEmailDetails
+      tags:
+        - emailDetails
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of emailDetails
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EmailDetails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a emailDetail
+      operationId: createEmailDetails
+      tags:
+        - emailDetails
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /emailDetails/{emailDetailId}:
+    get:
+      summary: Info for a specific emailDetail
+      operationId: showEmailDetailById
+      tags:
+        - emailDetails
+      parameters:
+        - name: emailDetailId
+          in: path
+          required: true
+          description: The id of the emailDetail to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EmailDetails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /keepNotes:
+    get:
+      summary: List all keepNotes
+      operationId: listKeepNotes
+      tags:
+        - keepNotes
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of keepNotes
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/KeepNotes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a keepNote
+      operationId: createKeepNotes
+      tags:
+        - keepNotes
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /keepNotes/{keepNoteId}:
+    get:
+      summary: Info for a specific keepNote
+      operationId: showKeepNoteById
+      tags:
+        - keepNotes
+      parameters:
+        - name: keepNoteId
+          in: path
+          required: true
+          description: The id of the keepNote to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/KeepNotes'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /emailGroupePieceJoints:
+    get:
+      summary: List all emailGroupePieceJoints
+      operationId: listEmailGroupePieceJoints
+      tags:
+        - emailGroupePieceJoints
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of emailGroupePieceJoints
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EmailGroupePieceJoints'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a emailGroupePieceJoint
+      operationId: createEmailGroupePieceJoints
+      tags:
+        - emailGroupePieceJoints
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /emailGroupePieceJoints/{emailGroupePieceJointId}:
+    get:
+      summary: Info for a specific emailGroupePieceJoint
+      operationId: showEmailGroupePieceJointById
+      tags:
+        - emailGroupePieceJoints
+      parameters:
+        - name: emailGroupePieceJointId
+          in: path
+          required: true
+          description: The id of the emailGroupePieceJoint to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EmailGroupePieceJoints'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /utilisateurs:
+    get:
+      summary: List all utilisateurs
+      operationId: listUtilisateurs
+      tags:
+        - utilisateurs
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of utilisateurs
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Utilisateurs'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a utilisateur
+      operationId: createUtilisateurs
+      tags:
+        - utilisateurs
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /utilisateurs/{utilisateurId}:
+    get:
+      summary: Info for a specific utilisateur
+      operationId: showUtilisateurById
+      tags:
+        - utilisateurs
+      parameters:
+        - name: utilisateurId
+          in: path
+          required: true
+          description: The id of the utilisateur to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Utilisateurs'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /groupeEmails:
+    get:
+      summary: List all groupeEmails
+      operationId: listGroupeEmails
+      tags:
+        - groupeEmails
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of groupeEmails
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/GroupeEmails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a groupeEmail
+      operationId: createGroupeEmails
+      tags:
+        - groupeEmails
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /groupeEmails/{groupeEmailId}:
+    get:
+      summary: Info for a specific groupeEmail
+      operationId: showGroupeEmailById
+      tags:
+        - groupeEmails
+      parameters:
+        - name: groupeEmailId
+          in: path
+          required: true
+          description: The id of the groupeEmail to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/GroupeEmails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /emailDetailGroups:
+    get:
+      summary: List all emailDetailGroups
+      operationId: listEmailDetailGroups
+      tags:
+        - emailDetailGroups
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of emailDetailGroups
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EmailDetailGroups'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a emailDetailGroup
+      operationId: createEmailDetailGroups
+      tags:
+        - emailDetailGroups
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /emailDetailGroups/{emailDetailGroupId}:
+    get:
+      summary: Info for a specific emailDetailGroup
+      operationId: showEmailDetailGroupById
+      tags:
+        - emailDetailGroups
+      parameters:
+        - name: emailDetailGroupId
+          in: path
+          required: true
+          description: The id of the emailDetailGroup to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EmailDetailGroups'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /typeContenus:
+    get:
+      summary: List all typeContenus
+      operationId: listTypeContenus
+      tags:
+        - typeContenus
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of typeContenus
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/TypeContenus'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a typeContenu
+      operationId: createTypeContenus
+      tags:
+        - typeContenus
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /typeContenus/{typeContenuId}:
+    get:
+      summary: Info for a specific typeContenu
+      operationId: showTypeContenuById
+      tags:
+        - typeContenus
+      parameters:
+        - name: typeContenuId
+          in: path
+          required: true
+          description: The id of the typeContenu to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/TypeContenus'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /categoryEmails:
+    get:
+      summary: List all categoryEmails
+      operationId: listCategoryEmails
+      tags:
+        - categoryEmails
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of categoryEmails
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/CategoryEmails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a categoryEmail
+      operationId: createCategoryEmails
+      tags:
+        - categoryEmails
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /categoryEmails/{categoryEmailId}:
+    get:
+      summary: Info for a specific categoryEmail
+      operationId: showCategoryEmailById
+      tags:
+        - categoryEmails
+      parameters:
+        - name: categoryEmailId
+          in: path
+          required: true
+          description: The id of the categoryEmail to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/CategoryEmails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /contacts:
+    get:
+      summary: List all contacts
+      operationId: listContacts
+      tags:
+        - contacts
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of contacts
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Contacts'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a contact
+      operationId: createContacts
+      tags:
+        - contacts
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /contacts/{contactId}:
+    get:
+      summary: Info for a specific contact
+      operationId: showContactById
+      tags:
+        - contacts
+      parameters:
+        - name: contactId
+          in: path
+          required: true
+          description: The id of the contact to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Contacts'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatEmails:
+    get:
+      summary: List all etatEmails
+      operationId: listEtatEmails
+      tags:
+        - etatEmails
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of etatEmails
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EtatEmails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a etatEmail
+      operationId: createEtatEmails
+      tags:
+        - etatEmails
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /etatEmails/{etatEmailId}:
+    get:
+      summary: Info for a specific etatEmail
+      operationId: showEtatEmailById
+      tags:
+        - etatEmails
+      parameters:
+        - name: etatEmailId
+          in: path
+          required: true
+          description: The id of the etatEmail to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EtatEmails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /emailpieceJoins:
+    get:
+      summary: List all emailpieceJoins
+      operationId: listEmailpieceJoins
+      tags:
+        - emailpieceJoins
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of emailpieceJoins
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/EmailpieceJoins'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a emailpieceJoin
+      operationId: createEmailpieceJoins
+      tags:
+        - emailpieceJoins
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /emailpieceJoins/{emailpieceJoinId}:
+    get:
+      summary: Info for a specific emailpieceJoin
+      operationId: showEmailpieceJoinById
+      tags:
+        - emailpieceJoins
+      parameters:
+        - name: emailpieceJoinId
+          in: path
+          required: true
+          description: The id of the emailpieceJoin to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/EmailpieceJoins'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /groupeEmailDetails:
+    get:
+      summary: List all groupeEmailDetails
+      operationId: listGroupeEmailDetails
+      tags:
+        - groupeEmailDetails
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of groupeEmailDetails
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/GroupeEmailDetails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create a groupeEmailDetail
+      operationId: createGroupeEmailDetails
+      tags:
+        - groupeEmailDetails
+      responses:
+        "201":
+          description: Null response
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /groupeEmailDetails/{groupeEmailDetailId}:
+    get:
+      summary: Info for a specific groupeEmailDetail
+      operationId: showGroupeEmailDetailById
+      tags:
+        - groupeEmailDetails
+      parameters:
+        - name: groupeEmailDetailId
+          in: path
+          required: true
+          description: The id of the groupeEmailDetail to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/GroupeEmailDetails'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  
+
+
+definitions:
+  Email:
+    type: "object"
+    required:
+      - id
+      - ref
+      - dateEnvoi
+      - corps
+      - header
+    properties:
+      id:
+        type: int
+      ref:
+        type: string
+      dateEnvoi:
+        type: date
+      corps:
+        type: string
+      header:
+        type: string
+  Emails:
+    type: array
+    items:
+      $ref: '#/definitions/Email'
+  EmailDetail:
+    type: "object"
+    required:
+      - id
+      - dateLecture
+      - dateReception
+    properties:
+      id:
+        type: int
+      dateLecture:
+        type: date
+      dateReception:
+        type: date
+  EmailDetails:
+    type: array
+    items:
+      $ref: '#/definitions/EmailDetail'
+  KeepNote:
+    type: "object"
+    required:
+      - id
+      - body
+      - header
+      - dateKeepNote
+    properties:
+      id:
+        type: int
+      body:
+        type: string
+      header:
+        type: string
+      dateKeepNote:
+        type: date
+  KeepNotes:
+    type: array
+    items:
+      $ref: '#/definitions/KeepNote'
+  EmailGroupePieceJoint:
+    type: "object"
+    required:
+      - id
+      - path
+      - taille
+    properties:
+      id:
+        type: int
+      path:
+        type: string
+      taille:
+        type: int
+  EmailGroupePieceJoints:
+    type: array
+    items:
+      $ref: '#/definitions/EmailGroupePieceJoint'
+  Utilisateur:
+    type: "object"
+    required:
+      - id
+      - username
+      - password
+      - email
+      - signature
+    properties:
+      id:
+        type: int
+      username:
+        type: string
+      password:
+        type: string
+      email:
+        type: string
+      signature:
+        type: string
+  Utilisateurs:
+    type: array
+    items:
+      $ref: '#/definitions/Utilisateur'
+  GroupeEmail:
+    type: "object"
+    required:
+      - id
+      - libelle
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+  GroupeEmails:
+    type: array
+    items:
+      $ref: '#/definitions/GroupeEmail'
+  EmailDetailGroup:
+    type: "object"
+    required:
+      - id
+      - dateReception
+      - dateLecture
+    properties:
+      id:
+        type: int
+      dateReception:
+        type: date
+      dateLecture:
+        type: date
+  EmailDetailGroups:
+    type: array
+    items:
+      $ref: '#/definitions/EmailDetailGroup'
+  TypeContenu:
+    type: "object"
+    required:
+      - id
+      - libelle
+      - code
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+      code:
+        type: string
+  TypeContenus:
+    type: array
+    items:
+      $ref: '#/definitions/TypeContenu'
+  CategoryEmail:
+    type: "object"
+    required:
+      - id
+      - name
+      - code
+    properties:
+      id:
+        type: int
+      name:
+        type: string
+      code:
+        type: string
+  CategoryEmails:
+    type: array
+    items:
+      $ref: '#/definitions/CategoryEmail'
+  Contact:
+    type: "object"
+    required:
+      - id
+      - name
+      - dateAjout
+    properties:
+      id:
+        type: int
+      name:
+        type: string
+      dateAjout:
+        type: date
+  Contacts:
+    type: array
+    items:
+      $ref: '#/definitions/Contact'
+  EtatEmail:
+    type: "object"
+    required:
+      - id
+      - libelle
+      - code
+    properties:
+      id:
+        type: int
+      libelle:
+        type: string
+      code:
+        type: string
+  EtatEmails:
+    type: array
+    items:
+      $ref: '#/definitions/EtatEmail'
+  EmailpieceJoin:
+    type: "object"
+    required:
+      - id
+      - path
+      - taille
+    properties:
+      id:
+        type: int
+      path:
+        type: string
+      taille:
+        type: string
+  EmailpieceJoins:
+    type: array
+    items:
+      $ref: '#/definitions/EmailpieceJoin'
+  GroupeEmailDetail:
+    type: "object"
+    required:
+      - id
+      - dateAjoute
+      - dateBlockage
+    properties:
+      id:
+        type: int
+      dateAjoute:
+        type: date
+      dateBlockage:
+        type: date
+  GroupeEmailDetails:
+    type: array
+    items:
+      $ref: '#/definitions/GroupeEmailDetail'
+
+  Error:
+    type: "object"
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string

@@ -1,0 +1,268 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'email.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'email.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'email.ref' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'email.ref' | translate}}" id="1" [(ngModel)]="item.ref"
+                                                   [ngClass]="{'ng-invalid ng-dirty' : !validEmailRef}"  />
+                                            <small class='p-error' *ngIf='!validEmailRef'>Ref est obligatoire.</small>
+                                        </div>
+
+
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="2">{{'email.personneSource' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="personneSources" [(ngModel)]="item.personneSource" id="2" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="email" placeholder="{{'email.personneSource' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'email.dateEnvoi' | translate}}</label>
+                                            <p-calendar appendTo="body" id="3"  [showTime]="true" [showSeconds]="false" placeholder="{{'email.dateEnvoi' | translate}}"  [(ngModel)]="item.dateEnvoi"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'email.corps' | translate}}</label>
+                                            <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="{{'email.corps' | translate}}"  [(ngModel)]="item.corps"
+                                                       ></textarea>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="5">{{'email.header' | translate}}</label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'email.header' | translate}}" id="5" [(ngModel)]="item.header"
+                                                    />
+                                            
+                                        </div>
+
+
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="6">{{'email.categoryEmail' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="categoryEmails" [(ngModel)]="item.categoryEmail" id="6" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="name" placeholder="{{'email.categoryEmail' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="7">{{'email.etatEmail' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="etatEmails" [(ngModel)]="item.etatEmail" id="7" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'email.etatEmail' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                        </div>
+                    </p-tabPanel>
+                            <p-tabPanel header="{{'email.emailDetails' | translate}}">
+                                        <div class="p-col">
+                                            <div class="grid">
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Personne destinataire</label>
+                                                                <p-dropdown  appendTo="body"  [options]="personneDestinataires" [(ngModel)]="emailDetailsElement.personneDestinataire"
+                                                                             id="2"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="email"
+                                                                             placeholder="Personne destinataire"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Etat email</label>
+                                                                <p-dropdown  appendTo="body"  [options]="etatEmails" [(ngModel)]="emailDetailsElement.etatEmail"
+                                                                             id="3"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="libelle"
+                                                                             placeholder="Etat email"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="4">Date lecture</label>
+                                                                <p-calendar appendTo="body" id="4"  [showTime]="true" [showSeconds]="false" placeholder="Date lecture" [(ngModel)]="emailDetailsElement.dateLecture"
+                                                                            dateFormat="{{dateFormat}}" [showIcon]="true"  ></p-calendar>
+                                                                
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="5">Date reception</label>
+                                                                <p-calendar appendTo="body" id="5"  [showTime]="true" [showSeconds]="false" placeholder="Date reception" [(ngModel)]="emailDetailsElement.dateReception"
+                                                                            dateFormat="{{dateFormat}}" [showIcon]="true"  ></p-calendar>
+                                                                
+                                                            </div>
+                                                <div class="field col-12 md:col-1">
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addEmailDetails()"></button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="p-col">
+                                            <div class="card">
+                                                <p-table [value]="item.emailDetails" [scrollable]="true" scrollHeight="200px">
+                                                    <ng-template pTemplate="header">
+                                                        <tr>
+                                                                        <th>Personne destinataire</th>
+                                                                        <th>Etat email</th>
+                                                                        <th>Date lecture</th>
+                                                                        <th>Date reception</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-p>
+                                                        <tr>
+                                                                    <td>{{p.personneDestinataire?.email}}</td>
+                                                                    <td>{{p.etatEmail?.libelle}}</td>
+                                                                        <td>{{p.dateLecture | date: dateFormatColumn}}</td>
+                                                                        <td>{{p.dateReception | date: dateFormatColumn}}</td>
+                                                            <td>
+                                                                <button (click)="deleteEmailDetails(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                <button (click)="editEmailDetails(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+
+                                        </div>
+                            </p-tabPanel>
+
+                            <p-tabPanel header="{{'email.emailpieceJoints' | translate}}">
+                                        <div class="p-col">
+                                            <div class="grid">
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="2">Path</label>
+                                                                <input class="mb-2 mr-2" type="text" pInputText placeholder="Path"
+                                                                       id="2" [(ngModel)]="emailpieceJointsElement.path" autofocus   >
+                                                                
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="3">Taille</label>
+                                                                <input class="mb-2 mr-2" type="text" pInputText placeholder="Taille"
+                                                                       id="3" [(ngModel)]="emailpieceJointsElement.taille" autofocus   >
+                                                                
+                                                            </div>
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Type contenu</label>
+                                                                <p-dropdown  appendTo="body"  [options]="typeContenus" [(ngModel)]="emailpieceJointsElement.typeContenu"
+                                                                             id="4"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="libelle"
+                                                                             placeholder="Type contenu"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+
+                                                <div class="field col-12 md:col-1">
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addEmailpieceJoints()"></button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="p-col">
+                                            <div class="card">
+                                                <p-table [value]="item.emailpieceJoints" [scrollable]="true" scrollHeight="200px">
+                                                    <ng-template pTemplate="header">
+                                                        <tr>
+                                                                        <th>Path</th>
+                                                                        <th>Taille</th>
+                                                                        <th>Type contenu</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-p>
+                                                        <tr>
+                                                                        <td>{{p.path}}</td>
+                                                                        <td>{{p.taille}}</td>
+                                                                    <td>{{p.typeContenu?.libelle}}</td>
+                                                            <td>
+                                                                <button (click)="deleteEmailpieceJoints(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                <button (click)="editEmailpieceJoints(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+
+                                        </div>
+                            </p-tabPanel>
+
+                            <p-tabPanel header="{{'email.emailDetailGroups' | translate}}">
+                                        <div class="p-col">
+                                            <div class="grid">
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Destination</label>
+                                                                <p-dropdown  appendTo="body"  [options]="destinations" [(ngModel)]="emailDetailGroupsElement.destination"
+                                                                             id="2"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="id"
+                                                                             placeholder="Destination"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="3">Date reception</label>
+                                                                <p-calendar appendTo="body" id="3"  [showTime]="true" [showSeconds]="false" placeholder="Date reception" [(ngModel)]="emailDetailGroupsElement.dateReception"
+                                                                            dateFormat="{{dateFormat}}" [showIcon]="true"  ></p-calendar>
+                                                                
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="4">Date lecture</label>
+                                                                <p-calendar appendTo="body" id="4"  [showTime]="true" [showSeconds]="false" placeholder="Date lecture" [(ngModel)]="emailDetailGroupsElement.dateLecture"
+                                                                            dateFormat="{{dateFormat}}" [showIcon]="true"  ></p-calendar>
+                                                                
+                                                            </div>
+                                                <div class="field col-12 md:col-1">
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addEmailDetailGroups()"></button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="p-col">
+                                            <div class="card">
+                                                <p-table [value]="item.emailDetailGroups" [scrollable]="true" scrollHeight="200px">
+                                                    <ng-template pTemplate="header">
+                                                        <tr>
+                                                                        <th>Destination</th>
+                                                                        <th>Date reception</th>
+                                                                        <th>Date lecture</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-p>
+                                                        <tr>
+                                                                    <td>{{p.destination?.id}}</td>
+                                                                        <td>{{p.dateReception | date: dateFormatColumn}}</td>
+                                                                        <td>{{p.dateLecture | date: dateFormatColumn}}</td>
+                                                            <td>
+                                                                <button (click)="deleteEmailDetailGroups(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                <button (click)="editEmailDetailGroups(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+
+                                        </div>
+                            </p-tabPanel>
+
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

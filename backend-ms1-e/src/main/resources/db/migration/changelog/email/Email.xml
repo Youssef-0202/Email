@@ -1,0 +1,77 @@
+<!-- db/changelog-1.1-container.xml -->
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+  <!-- Create Container Table -->
+    <changeSet id="1" author="your-name">
+    <createTable tableName="email">
+      <column name="id" type="BIGINT">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+        <column name="ref" type="VARCHAR(500)"/>
+        <column name="date_envoi" type="TIMESTAMP"/>
+        <column name="corps" type="VARCHAR(500)"/>
+        <column name="header" type="VARCHAR(500)"/>
+
+        <column name="personne_source_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="category_email_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="etat_email_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+
+    </createTable>
+  </changeSet>
+
+    <!-- Add foreign key constraint -->
+  <changeSet id="2" author="your-name">
+      <addForeignKeyConstraint
+              baseTableName="email"
+              baseColumnNames="personne_source_id"
+              referencedTableName="personne_source"
+              referencedColumnNames="id"
+              constraintName="fk_email_personne_source"/>
+      <addForeignKeyConstraint
+              baseTableName="email"
+              baseColumnNames="category_email_id"
+              referencedTableName="category_email"
+              referencedColumnNames="id"
+              constraintName="fk_email_category_email"/>
+      <addForeignKeyConstraint
+              baseTableName="email"
+              baseColumnNames="etat_email_id"
+              referencedTableName="etat_email"
+              referencedColumnNames="id"
+              constraintName="fk_email_etat_email"/>
+
+  </changeSet>
+
+    <!-- Create Sequence for ContainerType -->
+  <changeSet id="3" author="your-name">
+    <createSequence sequenceName="email_seq" startValue="1" incrementBy="1"/>
+  </changeSet>
+
+  <!-- Load Data from CSV -->
+  <changeSet id="4" author="your-name">
+    <loadData
+            file="classpath:/db/migration/data/email/Email.csv"
+            tableName="email">
+      <column name="id" type="NUMERIC"/>
+          <column name="ref" type="VARCHAR(500)"/>
+          <column name="date_envoi" type="TIMESTAMP"/>
+          <column name="corps" type="VARCHAR(500)"/>
+          <column name="header" type="VARCHAR(500)"/>
+        <column name="personne_source" type="BIGINT"/>
+        <column name="category_email" type="BIGINT"/>
+        <column name="etat_email" type="BIGINT"/>
+    </loadData>
+  </changeSet>
+
+
+</databaseChangeLog>

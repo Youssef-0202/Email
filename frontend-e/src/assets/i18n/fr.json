@@ -1,0 +1,335 @@
+{
+    "from-to": "Elements from {first} to {last} (total {totalRecords})",
+    "new" : "Nouveau",
+    "search": "Chercher",
+    "export": "Exporter",
+    "import": "Importer",
+    "validate": "Validater",
+    "search": "Chercher...",
+    "delete": "Supprimer",
+    "cancel": "Annuler",
+    "save": "Sauvgarder",
+    "next": "Suivant",
+    "yes": "Oui",
+    "no": "Non",
+    "actions": "Actions",
+    "confirm": "Confirmer",
+    "creation": "Creation",
+    "list": "Liste",
+    "nom": "Nom",
+    "email": "Email",
+    "Données personnelles" : "Données personnelles",
+    "Username" : "Nom d'utilisateur",
+    "Télephone" : "Téléphone",
+    "Nouveau Mot de passe" : "Nouveau mot de passe",
+    "Confirmer votre Mot de passe" : "Confirmez votre mot de passe",
+    "Mot de passe" : "Mot de passe",
+    "prenom": "Prenom",
+    "Changer": "Changer",
+	
+	"actionPermission": {
+    "reference": "Référence",
+    "libelle": "Libellé",
+    "actionPermission": "Permission d'action",
+    "tabPan": "Permission d'action",
+    "header": "Liste des permissions d'action",
+    "deleteActionPermissionConfirmationMessage": "Êtes-vous sûr de vouloir supprimer la permission d'action",
+    "deleteActionPermissionsConfirmationMessage": "Êtes-vous sûr de vouloir supprimer les éléments sélectionnés"
+},
+
+"modelPermissionUser": {
+    "actionPermission": "Permission d'action",
+    "actionPermissionPlaceHolder": "Sélectionner une permission d'action",
+    "actionPermissionPlaceHolderFilter": "Rechercher par permission d'action",
+    "modelPermission": "Permission du modèle",
+    "modelPermissionPlaceHolder": "Sélectionner une permission de modèle",
+    "modelPermissionPlaceHolderFilter": "Rechercher par permission de modèle",
+    "value": "Valeur",
+    "user": "Utilisateur",
+    "userPlaceHolder": "Sélectionner un utilisateur",
+    "userPlaceHolderFilter": "Rechercher par utilisateur",
+    "subAttribute": "Sous-attribut",
+    "modelPermissionUser": "Permission du modèle de l'utilisateur",
+    "tabPan": "Permission du modèle de l'utilisateur",
+    "header": "Liste des permissions du modèle de l'utilisateur",
+    "deleteModelPermissionUserConfirmationMessage": "Êtes-vous sûr de vouloir supprimer la permission du modèle de l'utilisateur",
+    "deleteModelPermissionUsersConfirmationMessage": "Êtes-vous sûr de vouloir supprimer les éléments sélectionnés"
+},
+"role": {
+    "authority": "Autorité",
+    "role": "Rôle",
+    "tabPan": "Rôle",
+    "header": "Liste des rôles",
+    "deleteRoleConfirmationMessage": "Êtes-vous sûr de vouloir supprimer le rôle",
+    "deleteRolesConfirmationMessage": "Êtes-vous sûr de vouloir supprimer les éléments sélectionnés"
+},
+"roleUser": {
+    "role": "Rôle",
+    "rolePlaceHolder": "Sélectionner un rôle",
+    "rolePlaceHolderFilter": "Rechercher par rôle",
+    "user": "Utilisateur",
+    "userPlaceHolder": "Sélectionner un utilisateur",
+    "userPlaceHolderFilter": "Rechercher par utilisateur",
+    "roleUser": "Utilisateur de rôle",
+    "tabPan": "Utilisateur de rôle",
+    "header": "Liste des utilisateurs de rôle",
+    "deleteRoleUserConfirmationMessage": "Êtes-vous sûr de vouloir supprimer l'utilisateur de rôle",
+    "deleteRoleUsersConfirmationMessage": "Êtes-vous sûr de vouloir supprimer les éléments sélectionnés"
+},
+"user": {
+    "credentialsNonExpired": "Credentials non expirés",
+    "enabled": "Activé",
+    "email": "Email",
+    "accountNonExpired": "Compte non expiré",
+    "accountNonLocked": "Compte non verrouillé",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "passwordChanged": "Mot de passe changé",
+    "modelPermissionUsers": "Utilisateurs de permission du modèle",
+    "roleUsers": "Utilisateurs de rôle",
+    "RoleUsersPlaceHolder": "Sélectionner plusieurs rôles",
+    "user": "Utilisateur",
+    "tabPan": "Utilisateur",
+    "header": "Liste des utilisateurs",
+    "deleteUserConfirmationMessage": "Êtes-vous sûr de vouloir supprimer l'utilisateur",
+    "deleteUsersConfirmationMessage": "Êtes-vous sûr de vouloir supprimer les éléments sélectionnés"
+},
+"modelPermission": {
+    "reference": "Référence",
+    "libelle": "Libellé",
+    "modelPermission": "Permission du modèle",
+    "tabPan": "Permission du modèle",
+    "header": "Liste des permissions du modèle",
+    "deleteModelPermissionConfirmationMessage": "Êtes-vous sûr de vouloir supprimer la permission du modèle",
+    "deleteModelPermissionsConfirmationMessage": "Êtes-vous sûr de vouloir supprimer les éléments sélectionnés"
+},
+
+
+    "email":{
+        "ref": "Ref",
+        "personneSource": "Personne source",
+        "personneSourcePlaceHolder": "Select a Personne source",
+        "personneSourcePlaceHolderFilter": "Search by Personne source",
+        "dateEnvoi": "Date envoi",
+        "dateEnvoiMin": "Date envoi Min",
+        "dateEnvoiMax": "Date envoi Max",
+        "corps": "Corps",
+        "header": "Header",
+        "categoryEmail": "Category email",
+        "categoryEmailPlaceHolder": "Select a Category email",
+        "categoryEmailPlaceHolderFilter": "Search by Category email",
+        "etatEmail": "Etat email",
+        "etatEmailPlaceHolder": "Select a Etat email",
+        "etatEmailPlaceHolderFilter": "Search by Etat email",
+        "emailDetails": "Email details",
+        "emailpieceJoints": "Emailpiece joints",
+        "emailDetailGroups": "Email detail groups",
+        "email": "Email",
+        "tabPan": "Email",
+        "header": "Liste des emails",
+        "deleteEmailConfirmationMessage": "Are you sure you want to delete email",
+        "deleteEmailsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "emailDetail":{
+        "email": "Email",
+        "emailPlaceHolder": "Select a Email",
+        "emailPlaceHolderFilter": "Search by Email",
+        "personneDestinataire": "Personne destinataire",
+        "personneDestinatairePlaceHolder": "Select a Personne destinataire",
+        "personneDestinatairePlaceHolderFilter": "Search by Personne destinataire",
+        "etatEmail": "Etat email",
+        "etatEmailPlaceHolder": "Select a Etat email",
+        "etatEmailPlaceHolderFilter": "Search by Etat email",
+        "dateLecture": "Date lecture",
+        "dateLectureMin": "Date lecture Min",
+        "dateLectureMax": "Date lecture Max",
+        "dateReception": "Date reception",
+        "dateReceptionMin": "Date reception Min",
+        "dateReceptionMax": "Date reception Max",
+        "emailDetail": "Email detail",
+        "tabPan": "Email detail",
+        "header": "Liste des email details",
+        "deleteEmailDetailConfirmationMessage": "Are you sure you want to delete email detail",
+        "deleteEmailDetailsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "keepNote":{
+        "body": "Body",
+        "header": "Header",
+        "personne": "Personne",
+        "personnePlaceHolder": "Select a Personne",
+        "personnePlaceHolderFilter": "Search by Personne",
+        "dateKeepNote": "Date keep note",
+        "dateKeepNoteMin": "Date keep note Min",
+        "dateKeepNoteMax": "Date keep note Max",
+        "keepNote": "Keep note",
+        "tabPan": "Keep note",
+        "header": "Liste des keep notes",
+        "deleteKeepNoteConfirmationMessage": "Are you sure you want to delete keep note",
+        "deleteKeepNotesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "emailGroupePieceJoint":{
+        "path": "Path",
+        "taille": "Taille",
+        "tailleMin": "Taille Min",
+        "tailleMax": "Taille Max",
+        "typecontenu": "Typecontenu",
+        "typecontenuPlaceHolder": "Select a Typecontenu",
+        "typecontenuPlaceHolderFilter": "Search by Typecontenu",
+        "groupeEmail": "Groupe email",
+        "groupeEmailPlaceHolder": "Select a Groupe email",
+        "groupeEmailPlaceHolderFilter": "Search by Groupe email",
+        "emailGroupePieceJoint": "Email groupe piece joint",
+        "tabPan": "Email groupe piece joint",
+        "header": "Liste des email groupe piece joints",
+        "deleteEmailGroupePieceJointConfirmationMessage": "Are you sure you want to delete email groupe piece joint",
+        "deleteEmailGroupePieceJointsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "utilisateur":{
+        "username": "Username",
+        "password": "Password",
+        "email": "Email",
+        "signature": "Signature",
+        "utilisateur": "Utilisateur",
+        "tabPan": "Utilisateur",
+        "header": "Liste des utilisateurs",
+        "deleteUtilisateurConfirmationMessage": "Are you sure you want to delete utilisateur",
+        "deleteUtilisateursConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "groupeEmail":{
+        "libelle": "Libelle",
+        "adminGroupe": "Admin groupe",
+        "adminGroupePlaceHolder": "Select a Admin groupe",
+        "adminGroupePlaceHolderFilter": "Search by Admin groupe",
+        "groupeEmailDetails": "Groupe email details",
+        "groupeEmail": "Groupe email",
+        "tabPan": "Groupe email",
+        "header": "Liste des groupe emails",
+        "deleteGroupeEmailConfirmationMessage": "Are you sure you want to delete groupe email",
+        "deleteGroupeEmailsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "emailDetailGroup":{
+        "email": "Email",
+        "emailPlaceHolder": "Select a Email",
+        "emailPlaceHolderFilter": "Search by Email",
+        "destination": "Destination",
+        "destinationPlaceHolder": "Select a Destination",
+        "destinationPlaceHolderFilter": "Search by Destination",
+        "dateReception": "Date reception",
+        "dateReceptionMin": "Date reception Min",
+        "dateReceptionMax": "Date reception Max",
+        "dateLecture": "Date lecture",
+        "dateLectureMin": "Date lecture Min",
+        "dateLectureMax": "Date lecture Max",
+        "emailDetailGroup": "Email detail group",
+        "tabPan": "Email detail group",
+        "header": "Liste des email detail groups",
+        "deleteEmailDetailGroupConfirmationMessage": "Are you sure you want to delete email detail group",
+        "deleteEmailDetailGroupsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "typeContenu":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "typeContenu": "Type contenu",
+        "tabPan": "Type contenu",
+        "header": "Liste des type contenus",
+        "deleteTypeContenuConfirmationMessage": "Are you sure you want to delete type contenu",
+        "deleteTypeContenusConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "categoryEmail":{
+        "name": "Name",
+        "code": "Code",
+        "categoryEmail": "Category email",
+        "tabPan": "Category email",
+        "header": "Liste des category emails",
+        "deleteCategoryEmailConfirmationMessage": "Are you sure you want to delete category email",
+        "deleteCategoryEmailsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "contact":{
+        "name": "Name",
+        "dateAjout": "Date ajout",
+        "dateAjoutMin": "Date ajout Min",
+        "dateAjoutMax": "Date ajout Max",
+        "personneSource": "Personne source",
+        "personneSourcePlaceHolder": "Select a Personne source",
+        "personneSourcePlaceHolderFilter": "Search by Personne source",
+        "personneDestination": "Personne destination",
+        "personneDestinationPlaceHolder": "Select a Personne destination",
+        "personneDestinationPlaceHolderFilter": "Search by Personne destination",
+        "contact": "Contact",
+        "tabPan": "Contact",
+        "header": "Liste des contacts",
+        "deleteContactConfirmationMessage": "Are you sure you want to delete contact",
+        "deleteContactsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "etatEmail":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "etatEmail": "Etat email",
+        "tabPan": "Etat email",
+        "header": "Liste des etat emails",
+        "deleteEtatEmailConfirmationMessage": "Are you sure you want to delete etat email",
+        "deleteEtatEmailsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "emailpieceJoin":{
+        "email": "Email",
+        "emailPlaceHolder": "Select a Email",
+        "emailPlaceHolderFilter": "Search by Email",
+        "path": "Path",
+        "taille": "Taille",
+        "typeContenu": "Type contenu",
+        "typeContenuPlaceHolder": "Select a Type contenu",
+        "typeContenuPlaceHolderFilter": "Search by Type contenu",
+        "emailpieceJoin": "Emailpiece join",
+        "tabPan": "Emailpiece join",
+        "header": "Liste des emailpiece joins",
+        "deleteEmailpieceJoinConfirmationMessage": "Are you sure you want to delete emailpiece join",
+        "deleteEmailpieceJoinsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "groupeEmailDetail":{
+        "personne": "Personne",
+        "personnePlaceHolder": "Select a Personne",
+        "personnePlaceHolderFilter": "Search by Personne",
+        "dateAjoute": "Date ajoute",
+        "dateAjouteMin": "Date ajoute Min",
+        "dateAjouteMax": "Date ajoute Max",
+        "dateBlockage": "Date blockage",
+        "dateBlockageMin": "Date blockage Min",
+        "dateBlockageMax": "Date blockage Max",
+        "groupeEmail": "Groupe email",
+        "groupeEmailPlaceHolder": "Select a Groupe email",
+        "groupeEmailPlaceHolderFilter": "Search by Groupe email",
+        "groupeEmailDetail": "Groupe email detail",
+        "tabPan": "Groupe email detail",
+        "header": "Liste des groupe email details",
+        "deleteGroupeEmailDetailConfirmationMessage": "Are you sure you want to delete groupe email detail",
+        "deleteGroupeEmailDetailsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+"appName": "GED"
+}
+
+

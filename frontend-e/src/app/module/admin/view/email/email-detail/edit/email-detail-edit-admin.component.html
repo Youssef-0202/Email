@@ -1,0 +1,66 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'emailDetail.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'emailDetail.tabPan' | translate}}">
+                        <div class="grid">
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="1">{{'emailDetail.email' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="emails" [(ngModel)]="item.email" id="1" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="ref" placeholder="{{'emailDetail.email' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="2">{{'emailDetail.personneDestinataire' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="personneDestinataires" [(ngModel)]="item.personneDestinataire" id="2" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="email" placeholder="{{'emailDetail.personneDestinataire' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="3">{{'emailDetail.etatEmail' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="etatEmails" [(ngModel)]="item.etatEmail" id="3" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'emailDetail.etatEmail' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'emailDetail.dateLecture' | translate}}</label>
+                                            <p-calendar appendTo="body" id="4"  [showTime]="true" [showSeconds]="false" placeholder="{{'emailDetail.dateLecture' | translate}}"  [(ngModel)]="item.dateLecture"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="5">{{'emailDetail.dateReception' | translate}}</label>
+                                            <p-calendar appendTo="body" id="5"  [showTime]="true" [showSeconds]="false" placeholder="{{'emailDetail.dateReception' | translate}}"  [(ngModel)]="item.dateReception"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

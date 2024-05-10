@@ -1,0 +1,63 @@
+<!-- db/changelog-1.1-container.xml -->
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+  <!-- Create Container Table -->
+    <changeSet id="1" author="your-name">
+    <createTable tableName="emailpiece_join">
+      <column name="id" type="BIGINT">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+        <column name="path" type="VARCHAR(500)"/>
+        <column name="taille" type="VARCHAR(500)"/>
+
+        <column name="email_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="type_contenu_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+
+    </createTable>
+  </changeSet>
+
+    <!-- Add foreign key constraint -->
+  <changeSet id="2" author="your-name">
+      <addForeignKeyConstraint
+              baseTableName="emailpiece_join"
+              baseColumnNames="email_id"
+              referencedTableName="email"
+              referencedColumnNames="id"
+              constraintName="fk_emailpiece_join_email"/>
+      <addForeignKeyConstraint
+              baseTableName="emailpiece_join"
+              baseColumnNames="type_contenu_id"
+              referencedTableName="type_contenu"
+              referencedColumnNames="id"
+              constraintName="fk_emailpiece_join_type_contenu"/>
+
+  </changeSet>
+
+    <!-- Create Sequence for ContainerType -->
+  <changeSet id="3" author="your-name">
+    <createSequence sequenceName="emailpiece_join_seq" startValue="1" incrementBy="1"/>
+  </changeSet>
+
+  <!-- Load Data from CSV -->
+  <changeSet id="4" author="your-name">
+    <loadData
+            file="classpath:/db/migration/data/email/EmailpieceJoin.csv"
+            tableName="emailpiece_join">
+      <column name="id" type="NUMERIC"/>
+          <column name="path" type="VARCHAR(500)"/>
+          <column name="taille" type="VARCHAR(500)"/>
+        <column name="email" type="BIGINT"/>
+        <column name="type_contenu" type="BIGINT"/>
+    </loadData>
+  </changeSet>
+
+
+</databaseChangeLog>

@@ -1,0 +1,14 @@
+{
+    "email": {"id": "#number"},
+    "personneDestinataire": {"id": "#number"},
+    "etatEmail": {"id": "#number"},
+
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'emailGroupePieceJoint.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'emailGroupePieceJoint.tabPan' | translate}}">
+                                <div class="grid">
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="1">{{'emailGroupePieceJoint.path' | translate}}</label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'emailGroupePieceJoint.path' | translate}}" id="1" [(ngModel)]="item.path"
+                                                             />
+                                                    
+                                                </div>
+
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'emailGroupePieceJoint.taille' | translate}}</label>
+                                                    <p-inputNumber class="mb-2 mr-2" id="2" placeholder="{{'emailGroupePieceJoint.taille' | translate}}" [(ngModel)]="item.taille"  >
+                                                    </p-inputNumber>
+                                                    
+                                                </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="3">{{'emailGroupePieceJoint.typecontenu' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="typecontenus" [(ngModel)]="item.typecontenu" id="3" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'emailGroupePieceJoint.typecontenu' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="4">{{'emailGroupePieceJoint.groupeEmail' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="groupeEmails" [(ngModel)]="item.groupeEmail" id="4" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="id" placeholder="{{'emailGroupePieceJoint.groupeEmail' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                </div>
+                            </p-tabPanel>
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="p-flexbox">
+
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="save()"></button>
+
+
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+
+
+                </div>
+            </ng-template>
+
+    </p-dialog>

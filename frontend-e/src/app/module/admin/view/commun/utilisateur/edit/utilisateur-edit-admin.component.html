@@ -1,0 +1,62 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'utilisateur.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'utilisateur.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'utilisateur.username' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'utilisateur.username' | translate}}" id="1" [(ngModel)]="item.username"
+                                                   [ngClass]="{'ng-invalid ng-dirty' : !validUtilisateurUsername}"  />
+                                            <small class='p-error' *ngIf='!validUtilisateurUsername'>Username est obligatoire.</small>
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="2">{{'utilisateur.password' | translate}}</label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'utilisateur.password' | translate}}" id="2" [(ngModel)]="item.password"
+                                                    />
+                                            
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'utilisateur.email' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'utilisateur.email' | translate}}" id="3" [(ngModel)]="item.email"
+                                                   [ngClass]="{'ng-invalid ng-dirty' : !validUtilisateurEmail}"  />
+                                            <small class='p-error' *ngIf='!validUtilisateurEmail'>Email est obligatoire.</small>
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'utilisateur.signature' | translate}}</label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'utilisateur.signature' | translate}}" id="4" [(ngModel)]="item.signature"
+                                                    />
+                                            
+                                        </div>
+
+
+
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

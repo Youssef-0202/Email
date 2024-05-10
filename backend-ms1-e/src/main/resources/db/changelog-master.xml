@@ -1,0 +1,20 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+            <include file="classpath:db/migration/changelog/email/Email.xml"/>
+        <include file="classpath:db/migration/changelog/email/EmailDetail.xml"/>
+        <include file="classpath:db/migration/changelog/commun/KeepNote.xml"/>
+        <include file="classpath:db/migration/changelog/emailgroup/EmailGroupePieceJoint.xml"/>
+        <include file="classpath:db/migration/changelog/commun/Utilisateur.xml"/>
+        <include file="classpath:db/migration/changelog/emailgroup/GroupeEmail.xml"/>
+        <include file="classpath:db/migration/changelog/emailgroup/EmailDetailGroup.xml"/>
+        <include file="classpath:db/migration/changelog/commun/TypeContenu.xml"/>
+        <include file="classpath:db/migration/changelog/commun/CategoryEmail.xml"/>
+        <include file="classpath:db/migration/changelog/commun/Contact.xml"/>
+        <include file="classpath:db/migration/changelog/commun/EtatEmail.xml"/>
+        <include file="classpath:db/migration/changelog/email/EmailpieceJoin.xml"/>
+        <include file="classpath:db/migration/changelog/emailgroup/GroupeEmailDetail.xml"/>
+
+</databaseChangeLog>

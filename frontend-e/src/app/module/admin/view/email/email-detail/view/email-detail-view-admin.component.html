@@ -1,0 +1,44 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'emailDetail.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'emailDetail.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'emailDetail.email' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'emailDetail.email' | translate}}" autofocus  id="1" [ngModel]="item.email?.ref">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'emailDetail.personneDestinataire' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'emailDetail.personneDestinataire' | translate}}" autofocus  id="2" [ngModel]="item.personneDestinataire?.email">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'emailDetail.etatEmail' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'emailDetail.etatEmail' | translate}}" autofocus  id="3" [ngModel]="item.etatEmail?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'emailDetail.dateLecture' | translate}}</label>
+                        <p-calendar id="4" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'emailDetail.dateLecture' | translate}}"  [ngModel]="item.dateLecture" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'emailDetail.dateReception' | translate}}</label>
+                        <p-calendar id="5" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'emailDetail.dateReception' | translate}}"  [ngModel]="item.dateReception" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

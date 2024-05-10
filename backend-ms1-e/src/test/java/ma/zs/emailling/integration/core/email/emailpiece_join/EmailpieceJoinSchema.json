@@ -1,0 +1,15 @@
+{
+    "email": {"id": "#number"},
+    "path": "#string",
+    "taille": "#string",
+    "typeContenu": {"id": "#number"}
+
+}
+
+
+
+
+
+
+
+

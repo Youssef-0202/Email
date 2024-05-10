@@ -1,0 +1,60 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'emailpieceJoin.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'emailpieceJoin.tabPan' | translate}}">
+                                <div class="grid">
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="1">{{'emailpieceJoin.email' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="emails" [(ngModel)]="item.email" id="1" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="ref" placeholder="{{'emailpieceJoin.email' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'emailpieceJoin.path' | translate}}</label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'emailpieceJoin.path' | translate}}" id="2" [(ngModel)]="item.path"
+                                                             />
+                                                    
+                                                </div>
+
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="3">{{'emailpieceJoin.taille' | translate}}</label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'emailpieceJoin.taille' | translate}}" id="3" [(ngModel)]="item.taille"
+                                                             />
+                                                    
+                                                </div>
+
+
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="4">{{'emailpieceJoin.typeContenu' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="typeContenus" [(ngModel)]="item.typeContenu" id="4" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'emailpieceJoin.typeContenu' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                </div>
+                            </p-tabPanel>
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="p-flexbox">
+
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="save()"></button>
+
+
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+
+
+                </div>
+            </ng-template>
+
+    </p-dialog>

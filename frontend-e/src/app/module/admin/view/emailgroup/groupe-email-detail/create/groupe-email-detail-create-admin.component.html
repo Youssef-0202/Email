@@ -1,0 +1,58 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'groupeEmailDetail.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'groupeEmailDetail.tabPan' | translate}}">
+                                <div class="grid">
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="1">{{'groupeEmailDetail.personne' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="personnes" [(ngModel)]="item.personne" id="1" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="email" placeholder="{{'groupeEmailDetail.personne' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'groupeEmailDetail.dateAjoute' | translate}}</label>
+                                                    <p-calendar appendTo="body" id="2"  [showTime]="true" [showSeconds]="false" placeholder="{{'groupeEmailDetail.dateAjoute' | translate}}"  [(ngModel)]="item.dateAjoute"
+                                                            dateFormat="{{dateFormat}}"  >
+                                                    </p-calendar>
+                                                    
+                                                </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="3">{{'groupeEmailDetail.dateBlockage' | translate}}</label>
+                                                    <p-calendar appendTo="body" id="3"  [showTime]="true" [showSeconds]="false" placeholder="{{'groupeEmailDetail.dateBlockage' | translate}}"  [(ngModel)]="item.dateBlockage"
+                                                            dateFormat="{{dateFormat}}"  >
+                                                    </p-calendar>
+                                                    
+                                                </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="4">{{'groupeEmailDetail.groupeEmail' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="groupeEmails" [(ngModel)]="item.groupeEmail" id="4" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="id" placeholder="{{'groupeEmailDetail.groupeEmail' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                </div>
+                            </p-tabPanel>
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="p-flexbox">
+
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="save()"></button>
+
+
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+
+
+                </div>
+            </ng-template>
+
+    </p-dialog>

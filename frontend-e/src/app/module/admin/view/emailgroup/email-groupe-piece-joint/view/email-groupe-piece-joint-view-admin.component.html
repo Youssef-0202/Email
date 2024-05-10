@@ -1,0 +1,40 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'emailGroupePieceJoint.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'emailGroupePieceJoint.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'emailGroupePieceJoint.path' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'emailGroupePieceJoint.path' | translate}}" autofocus  id="1" [ngModel]="item.path">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'emailGroupePieceJoint.taille' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="2" [disabled]="true" placeholder="{{'emailGroupePieceJoint.taille' | translate}}" [ngModel]="item.taille"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'emailGroupePieceJoint.typecontenu' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'emailGroupePieceJoint.typecontenu' | translate}}" autofocus  id="3" [ngModel]="item.typecontenu?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'emailGroupePieceJoint.groupeEmail' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'emailGroupePieceJoint.groupeEmail' | translate}}" autofocus  id="4" [ngModel]="item.groupeEmail?.id">
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

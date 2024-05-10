@@ -1,0 +1,24 @@
+{
+    "libelle": "#string",
+    "adminGroupe": {"id": "#number"},
+
+    "groupeEmailDetails": [
+      {
+        "personne":{"id": "#number"}}
+      },
+      {
+        "personne":{"id": "#number"}}
+      },
+      {
+        "personne":{"id": "#number"}}
+      }
+    ]
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'contact.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'contact.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'contact.name' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'contact.name' | translate}}" autofocus  id="1" [ngModel]="item.name">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'contact.dateAjout' | translate}}</label>
+                        <p-calendar id="2" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'contact.dateAjout' | translate}}"  [ngModel]="item.dateAjout" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'contact.personneSource' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'contact.personneSource' | translate}}" autofocus  id="3" [ngModel]="item.personneSource?.email">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'contact.personneDestination' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'contact.personneDestination' | translate}}" autofocus  id="4" [ngModel]="item.personneDestination?.email">
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

@@ -1,0 +1,59 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'contact.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'contact.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'contact.name' | translate}}</label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'contact.name' | translate}}" id="1" [(ngModel)]="item.name"
+                                                    />
+                                            
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="2">{{'contact.dateAjout' | translate}}</label>
+                                            <p-calendar appendTo="body" id="2"  [showTime]="true" [showSeconds]="false" placeholder="{{'contact.dateAjout' | translate}}"  [(ngModel)]="item.dateAjout"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="3">{{'contact.personneSource' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="personneSources" [(ngModel)]="item.personneSource" id="3" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="email" placeholder="{{'contact.personneSource' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="4">{{'contact.personneDestination' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="personneDestinations" [(ngModel)]="item.personneDestination" id="4" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="email" placeholder="{{'contact.personneDestination' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

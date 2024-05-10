@@ -1,0 +1,26 @@
+{
+    "id": 1,
+    "libelle": "libelle-11",
+    "id": 1,
+    "adminGroupe": {"id": "1"},
+
+    "groupeEmailDetails": [
+        {
+            "personne":{"id": "1"}
+        },
+        {
+            "personne":{"id": "2"}
+        },
+        {
+            "personne":{"id": "3"}
+        }
+    ]
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'keepNote.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'keepNote.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'keepNote.body' | translate}}</label>
+                        <textarea id="1" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'keepNote.body' | translate}}"  [ngModel]="item.body"></textarea>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'keepNote.header' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'keepNote.header' | translate}}" autofocus  id="2" [ngModel]="item.header">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'keepNote.personne' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'keepNote.personne' | translate}}" autofocus  id="3" [ngModel]="item.personne?.email">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'keepNote.dateKeepNote' | translate}}</label>
+                        <p-calendar id="4" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'keepNote.dateKeepNote' | translate}}"  [ngModel]="item.dateKeepNote" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

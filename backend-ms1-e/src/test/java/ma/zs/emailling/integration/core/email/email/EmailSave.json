@@ -1,0 +1,59 @@
+{
+    "ref": "ref-1",
+    "personneSource": {"id": "1"},
+    "corps": "corps-1",
+    "header": "header-1",
+    "categoryEmail": {"id": "1"},
+    "etatEmail": {"id": "1"},
+
+    "emailDetails": [
+        {
+            "personneDestinataire":{"id": "1"},
+            "etatEmail":{"id": "1"}
+        },
+        {
+            "personneDestinataire":{"id": "2"},
+            "etatEmail":{"id": "2"}
+        },
+        {
+            "personneDestinataire":{"id": "3"},
+            "etatEmail":{"id": "3"}
+        }
+    ],
+    "emailpieceJoints": [
+        {
+            "path":"path-1",
+            "taille":"taille-1",
+            "typeContenu":{"id": "1"}
+        },
+        {
+            "path":"path-2",
+            "taille":"taille-2",
+            "typeContenu":{"id": "2"}
+        },
+        {
+            "path":"path-3",
+            "taille":"taille-3",
+            "typeContenu":{"id": "3"}
+        }
+    ],
+    "emailDetailGroups": [
+        {
+            "destination":{"id": "1"}
+        },
+        {
+            "destination":{"id": "2"}
+        },
+        {
+            "destination":{"id": "3"}
+        }
+    ]
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+{
+    "path": "#string",
+    "taille": "#number",
+    "typecontenu": {"id": "#number"},
+    "groupeEmail": {"id": "#number"}
+
+}
+
+
+
+
+
+
+
+

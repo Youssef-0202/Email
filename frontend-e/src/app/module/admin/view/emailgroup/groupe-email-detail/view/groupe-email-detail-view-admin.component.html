@@ -1,0 +1,40 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'groupeEmailDetail.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'groupeEmailDetail.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'groupeEmailDetail.personne' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'groupeEmailDetail.personne' | translate}}" autofocus  id="1" [ngModel]="item.personne?.email">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'groupeEmailDetail.dateAjoute' | translate}}</label>
+                        <p-calendar id="2" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'groupeEmailDetail.dateAjoute' | translate}}"  [ngModel]="item.dateAjoute" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'groupeEmailDetail.dateBlockage' | translate}}</label>
+                        <p-calendar id="3" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'groupeEmailDetail.dateBlockage' | translate}}"  [ngModel]="item.dateBlockage" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'groupeEmailDetail.groupeEmail' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'groupeEmailDetail.groupeEmail' | translate}}" autofocus  id="4" [ngModel]="item.groupeEmail?.id">
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

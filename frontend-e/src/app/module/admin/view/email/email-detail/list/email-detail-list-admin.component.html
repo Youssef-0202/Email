@@ -1,0 +1,169 @@
+<div class="grid"  *ngIf="listActionIsValid">
+    <div class="col-12">
+        <p-toast></p-toast>
+        <div class="card">
+            <p-toolbar styleClass="mb-4">
+                <ng-template pTemplate="left">
+                                        <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate('EmailDetail')" *ngIf="createActionIsValid"></button>
+                    <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>
+                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <div class="flex">
+                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>
+                    </div>
+                </ng-template>
+
+            </p-toolbar>
+            <p-toolbar *ngIf="findByCriteriaShow">
+
+                <div class="col-12">
+                    <div class="flex flex-wrap p-fluid col-12">
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="1-2">{{'emailDetail.email' | translate}}</label>
+                            <p-dropdown [options]="emails" [(ngModel)]="criteria.email" id="1" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'emailDetail.email' | translate}}" optionLabel="ref">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="2-2">{{'emailDetail.personneDestinataire' | translate}}</label>
+                            <p-dropdown [options]="personneDestinataires" [(ngModel)]="criteria.personneDestinataire" id="2" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'emailDetail.personneDestinataire' | translate}}" optionLabel="email">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="3-2">{{'emailDetail.etatEmail' | translate}}</label>
+                            <p-dropdown [options]="etatEmails" [(ngModel)]="criteria.etatEmail" id="3" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'emailDetail.etatEmail' | translate}}" optionLabel="libelle">
+                            </p-dropdown>
+                        </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="4-1">{{'emailDetail.dateLectureMin' | translate}}</label>
+                            <p-calendar class="mr-2" [(ngModel)]="criteria.dateLectureFrom"
+                                    id="4-1" dateFormat="dd-MM-yy"  [showIcon]="true"  class="p-fluid"></p-calendar>
+                        </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="4-2">{{'emailDetail.dateLectureMax' | translate}}</label>
+                            <p-calendar class="mr-2" [(ngModel)]="criteria.dateLectureTo"
+                                    id="4-2" dateFormat="dd-MM-yy"  [showIcon]="true" class="p-fluid"></p-calendar>
+                        </div>
+
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="5-1">{{'emailDetail.dateReceptionMin' | translate}}</label>
+                            <p-calendar class="mr-2" [(ngModel)]="criteria.dateReceptionFrom"
+                                    id="5-1" dateFormat="dd-MM-yy"  [showIcon]="true"  class="p-fluid"></p-calendar>
+                        </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="5-2">{{'emailDetail.dateReceptionMax' | translate}}</label>
+                            <p-calendar class="mr-2" [(ngModel)]="criteria.dateReceptionTo"
+                                    id="5-2" dateFormat="dd-MM-yy"  [showIcon]="true" class="p-fluid"></p-calendar>
+                        </div>
+
+                    </div>
+                    <div [style]="{ marginTop : '1rem', display: 'flex', justifyContent: 'flex-end' }">
+                        <button pButton pRipple label="{{'validate' | translate}}" icon="pi pi-sort-amount-down" class="p-button-info mr-2" (click)="findPaginatedByCriteria()"></button>
+                    </div>
+                </div>
+
+
+            </p-toolbar>
+
+
+            <p-table #dt [value]="items" [columns]="cols" [rows]="8" [paginator]="false"
+                    [globalFilterFields]="['emailref', 'personneDestinataireemail', 'etatEmaillibelle', 'dateLecture', 'dateReception']" [(selection)]="selections"
+                    [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
+                    currentPageReportTemplate="{{'les éléments de {first} à {last} sur {totalRecords} ' | translate}}"
+                    [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" selectionMode="multiple">
+                <ng-template pTemplate="caption">
+                    <div class="flex flex-column flex-row justify-content-between table-header">
+                        <h5 class="p-m-0">{{'emailDetail.header' | translate}}</h5>
+                        <span class="p-input-icon-left ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="{{'searchInput' | translate}}" (input)="dt.filterGlobal($event.target.value, 'contains')"/>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+
+                        <th pSortableColumn="email">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'emailDetail.email' | translate}}</span>
+                                <p-sortIcon field="email"></p-sortIcon>
+                            </div>
+                        </th>
+
+
+                        <th pSortableColumn="personneDestinataire">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'emailDetail.personneDestinataire' | translate}}</span>
+                                <p-sortIcon field="personneDestinataire"></p-sortIcon>
+                            </div>
+                        </th>
+
+
+                        <th pSortableColumn="etatEmail">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'emailDetail.etatEmail' | translate}}</span>
+                                <p-sortIcon field="etatEmail"></p-sortIcon>
+                            </div>
+                        </th>
+
+
+
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-element>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="element"></p-tableCheckbox>
+                        </td>
+
+                        <td>{{element.email?.ref}}</td>
+
+
+                        <td>{{element.personneDestinataire?.email}}</td>
+
+
+                        <td>{{element.etatEmail?.libelle}}</td>
+
+
+
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-info mr-2" (click)="edit(element)"  *ngIf="editActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-secondary mr-2" (click)="view(element)"  *ngIf="viewActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="summary">
+                    <p-paginator  [rows]="10" [totalRecords]="totalRecords" (onPageChange)="onPage($event)"></p-paginator>
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        En totale il {{items ? totalRecords == 1 ? 'y a' : 'y a' : 'y a' }} {{items ? totalRecords : 0 }} {{items ? totalRecords == 1 ? 'email detail' : 'email details' : 0 }}.
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <app-email-detail-create-admin  *ngIf="createDialog  && createActionIsValid"></app-email-detail-create-admin>
+        <app-email-detail-edit-admin  *ngIf="editDialog  && editActionIsValid"></app-email-detail-edit-admin>
+        <app-email-detail-view-admin  *ngIf="viewDialog  && viewActionIsValid"></app-email-detail-view-admin>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>
+
+<p-card header="Permission not allowed" *ngIf="!listActionIsValid">
+    <p class="m-0">
+        You don't have permission to access !
+    </p>
+</p-card>
